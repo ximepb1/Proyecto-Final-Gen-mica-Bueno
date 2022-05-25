@@ -1,0 +1,2423 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Proyecto Final Genómica},
+  pdfauthor={Plascencia Bahena Ximena \& Salinas Mora Cecilia Quetzal},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Proyecto Final Genómica}
+\author{Plascencia Bahena Ximena \& Salinas Mora Cecilia Quetzal}
+\date{2022-05-22}
+
+\begin{document}
+\maketitle
+
+\textbf{Nuestro proyecto busca encontrar sí existe una relación en
+factores sociales, educativos y generacionales, con creencias sobre
+SARS-CoV-2 y la vacunación.}
+
+Vamos a generar una red donde observemos los dosis de vacuna por
+individuo
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{VacunasM }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"vacunas.xlsx {-} Hoja1.csv"}\NormalTok{)}
+\DocumentationTok{\#\# Establecemos los nombres de las columnas en la fila 1}
+\FunctionTok{rownames}\NormalTok{(VacunasM)}\OtherTok{\textless{}{-}}\NormalTok{VacunasM[,}\DecValTok{1}\NormalTok{]}
+\CommentTok{\#Eliminamos la fila 1 de la base de datos que contiene nombres}
+\NormalTok{VacunasM }\OtherTok{\textless{}{-}}\NormalTok{ VacunasM[,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\CommentTok{\#Visualizamos nuestra base de datos}
+\NormalTok{VacunasM}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     I1 I2 I3 I4 I5 I6 I7 I8 I9 I10 I11 I12 I13 I14 I15 I16 I17 I18 I19 I20 I21
+## I1   0  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I2   1  0  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I3   1  1  0  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I4   1  1  1  0  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I5   1  1  1  1  0  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I6   1  1  1  1  1  0  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I7   0  0  0  0  0  0  0  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I8   1  1  1  1  1  1  0  0  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I9   0  0  0  0  0  0  1  0  0   0   1   0   0   0   0   0   1   0   1   1   0
+## I10  1  1  1  1  1  1  0  1  0   0   0   1   1   1   1   0   0   1   0   0   0
+## I11  0  0  0  0  0  0  1  0  1   0   0   0   0   0   0   0   1   0   1   1   0
+## I12  1  1  1  1  1  1  0  1  0   1   0   0   1   1   1   0   0   1   0   0   0
+## I13  1  1  1  1  1  1  0  1  0   1   0   1   0   1   1   0   0   1   0   0   0
+## I14  1  1  1  1  1  1  0  1  0   1   0   1   1   0   1   0   0   1   0   0   0
+## I15  1  1  1  1  1  1  0  1  0   1   0   1   1   1   0   0   0   1   0   0   0
+## I16  0  0  0  0  0  0  0  0  0   0   0   0   0   0   0   0   0   0   0   0   1
+## I17  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   0   0   1   1   0
+## I18  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   0   0   0   0
+## I19  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   0   1   0
+## I20  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   0   0
+## I21  0  0  0  0  0  0  0  0  0   0   0   0   0   0   0   1   0   0   0   0   1
+## I22  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I23  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I24  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I25  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I26  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I27  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I28  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I29  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I30  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I31  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I32  0  0  0  0  0  0  0  0  0   0   0   0   0   0   0   1   0   0   0   0   1
+## I33  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I34  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I35  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I36  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I37  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I38  0  0  0  0  0  0  0  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I39  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I40  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I41  0  0  0  0  0  0  0  0  0   0   0   0   0   0   0   1   0   0   0   0   1
+## I42  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I43  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I44  0  0  0  0  0  0  0  0  0   0   0   0   0   0   0   1   0   0   0   0   0
+## I45  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I46  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I47  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I48  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I49  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I50  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I51  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I52  0  0  0  0  0  0  1  0  1   0   1   0   0   0   0   0   1   0   1   1   0
+## I53  0  0  0  0  0  0  0  0  0   0   0   0   0   0   0   1   0   0   0   0   1
+## I54  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I55  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+## I56  1  1  1  1  1  1  0  1  0   1   0   1   1   1   1   0   0   1   0   0   0
+##     I22 I23 I24 I25 I26 I27 I28 I29 I30 I31 I32 I33 I34 I35 I36 I37 I38 I39 I40
+## I1    0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I2    0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I3    0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I4    0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I5    0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I6    0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I7    1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I8    0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I9    1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I10   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I11   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I12   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I13   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I14   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I15   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I16   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0
+## I17   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I18   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I19   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I20   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I21   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0
+## I22   0   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I23   0   0   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I24   1   0   0   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I25   0   1   0   0   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I26   1   0   1   0   0   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I27   1   0   1   0   1   0   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I28   0   1   0   1   0   0   0   1   1   1   0   0   1   0   0   0   0   1   1
+## I29   0   1   0   1   0   0   1   0   1   1   0   0   1   0   0   0   0   1   1
+## I30   0   1   0   1   0   0   1   1   0   1   0   0   1   0   0   0   0   1   1
+## I31   0   1   0   1   0   0   1   1   1   0   0   0   1   0   0   0   0   1   1
+## I32   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I33   1   0   1   0   1   1   0   0   0   0   0   0   0   1   1   1   1   0   0
+## I34   0   1   0   1   0   0   1   1   1   1   0   0   0   0   0   0   0   1   1
+## I35   1   0   1   0   1   1   0   0   0   0   0   1   0   0   1   1   1   0   0
+## I36   1   0   1   0   1   1   0   0   0   0   0   1   0   1   0   1   1   0   0
+## I37   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   0   1   0   0
+## I38   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   0   0   0
+## I39   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   0   1
+## I40   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   0
+## I41   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0
+## I42   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I43   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I44   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0
+## I45   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I46   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I47   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I48   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I49   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I50   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I51   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I52   1   0   1   0   1   1   0   0   0   0   0   1   0   1   1   1   1   0   0
+## I53   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0
+## I54   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I55   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+## I56   0   1   0   1   0   0   1   1   1   1   0   0   1   0   0   0   0   1   1
+##     I41 I42 I43 I44 I45 I46 I47 I48 I49 I50 I51 I52 I53 I54 I55 I56
+## I1    0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I2    0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I3    0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I4    0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I5    0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I6    0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I7    0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I8    0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I9    0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I10   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I11   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I12   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I13   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I14   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I15   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I16   1   0   0   1   0   0   0   0   0   0   0   0   1   0   0   0
+## I17   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I18   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I19   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I20   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I21   1   0   0   1   0   0   0   0   0   0   0   0   1   0   0   0
+## I22   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I23   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I24   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I25   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I26   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I27   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I28   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I29   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I30   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I31   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I32   1   0   0   1   0   0   0   0   0   0   0   0   1   0   0   0
+## I33   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I34   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I35   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I36   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I37   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I38   0   0   0   0   1   1   0   0   0   1   0   1   0   0   0   0
+## I39   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I40   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I41   0   0   0   1   0   0   0   0   0   0   0   0   1   0   0   0
+## I42   0   0   1   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I43   0   1   0   0   0   0   1   1   1   0   1   0   0   1   1   1
+## I44   1   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0
+## I45   0   0   0   0   0   1   0   0   0   1   0   1   0   0   0   0
+## I46   0   0   0   0   1   0   0   0   0   1   0   1   0   0   0   0
+## I47   0   1   1   0   0   0   0   1   1   0   1   0   0   1   1   1
+## I48   0   1   1   0   0   0   1   0   1   0   1   0   0   1   1   1
+## I49   0   1   1   0   0   0   1   1   0   0   1   0   0   1   1   1
+## I50   0   0   0   0   1   1   0   0   0   0   0   1   0   0   0   0
+## I51   0   1   1   0   0   0   1   1   1   0   0   0   0   1   1   1
+## I52   0   0   0   0   1   1   0   0   0   1   0   0   0   0   0   0
+## I53   1   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0
+## I54   0   1   1   0   0   0   1   1   1   0   1   0   0   0   1   1
+## I55   0   1   1   0   0   0   1   1   1   0   1   0   0   1   0   1
+## I56   0   1   1   0   0   0   1   1   1   0   1   0   0   1   1   0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Convertimos nuestra base de datos en una matriz}
+\NormalTok{VacunasMM }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(VacunasM)}
+\CommentTok{\#Vamos a hacer una matriz de correlación para tener valores entre 0 y 1 que nos indiquen }
+\CommentTok{\#la correlación entre infividuos}
+\NormalTok{VacunasCor }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(}\FunctionTok{t}\NormalTok{(VacunasMM))}
+\CommentTok{\#ponemos los valores de la diagonal en 0}
+\FunctionTok{diag}\NormalTok{(VacunasCor)}\OtherTok{\textless{}{-}}\DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+Imprimimos el heatmap
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+Vamos a contruir la red
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#Vamos a hacer que los valores de la correlación queden entre 0 y 1}
+\NormalTok{VacunasAd1 }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{+}\NormalTok{VacunasCor)}\SpecialCharTok{/}\DecValTok{2}
+\CommentTok{\#Ponemos en 0 la diagonal de la matriz}
+\FunctionTok{diag}\NormalTok{(VacunasAd1)}\OtherTok{\textless{}{-}}\DecValTok{0}
+\CommentTok{\#Indicamos que los valores mayores a 0.75 se les ponga un 1}
+\NormalTok{Vcerouno }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(VacunasAd1}\SpecialCharTok{\textgreater{}}\FloatTok{0.75}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\CommentTok{\#Convertimos a matriz}
+\NormalTok{Vcerouno }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(Vcerouno)}
+
+\CommentTok{\#Cargamos la libreria de igraph}
+\FunctionTok{library}\NormalTok{(igraph)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'igraph'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     decompose, spectrum
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:base':
+## 
+##     union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Convertimos nuestra matriz en una matriz de Adyacencia}
+\NormalTok{AdyacenciaV }\OtherTok{\textless{}{-}} \FunctionTok{graph\_from\_adjacency\_matrix}\NormalTok{(Vcerouno)}
+
+
+\FunctionTok{V}\NormalTok{(AdyacenciaV)}\SpecialCharTok{$}\NormalTok{size}\OtherTok{\textless{}{-}}\FunctionTok{degree}\NormalTok{(AdyacenciaV,}\AttributeTok{mode=}\StringTok{"in"}\NormalTok{)}\SpecialCharTok{*}\DecValTok{3}  \CommentTok{\#Hacemos el tamaño de los nodos por el valor del degree de entrada}
+\FunctionTok{V}\NormalTok{(AdyacenciaV)}\SpecialCharTok{$}\NormalTok{color}\OtherTok{=}\StringTok{"\#96F7D2"} \CommentTok{\#les ponemos colorcito}
+\FunctionTok{V}\NormalTok{(AdyacenciaV)}\SpecialCharTok{$}\NormalTok{shape}\OtherTok{=}\StringTok{"sphere"} \CommentTok{\#establecemos forma}
+\FunctionTok{E}\NormalTok{(AdyacenciaV)}\SpecialCharTok{$}\NormalTok{color}\OtherTok{=}\StringTok{"white"} \CommentTok{\#damos color a las conexiones}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ebV }\OtherTok{\textless{}{-}} \FunctionTok{cluster\_edge\_betweenness}\NormalTok{(AdyacenciaV, }\AttributeTok{directed =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(}\FunctionTok{membership}\NormalTok{(ebV))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  1  2  3 
+## 31 19  6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Nos indica la presencia de 11 clusters}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\textbf{Ahora realizaremos lo mismo por área de trabajo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{AreaM }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"area.xlsx {-} Hoja1.csv"}\NormalTok{)}
+\DocumentationTok{\#\# Establecemos los nombres de las columnas en la fila 1}
+\FunctionTok{rownames}\NormalTok{(AreaM)}\OtherTok{\textless{}{-}}\NormalTok{AreaM[,}\DecValTok{1}\NormalTok{]}
+\CommentTok{\#Eliminamos la fila 1 de la base de datos que contiene nombres}
+\NormalTok{AreaM }\OtherTok{\textless{}{-}}\NormalTok{ AreaM[,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\CommentTok{\#Visualizamos nuestra base de datos}
+\NormalTok{AreaM}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     I1 I2 I3 I4 I5 I6 I7 I8 I9 I10 I11 I12 I13 I14 I15 I16 I17 I18 I19 I20 I21
+## I1   0  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I2   0  0  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+## I3   1  0  0  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I4   0  0  0  0  0  1  0  0  0   0   0   0   0   0   0   1   0   0   0   0   0
+## I5   0  0  0  0  0  0  0  0  1   0   1   0   0   0   0   0   0   0   0   0   0
+## I6   0  0  0  1  0  0  0  0  0   0   0   0   0   0   0   1   0   0   0   0   0
+## I7   0  0  0  0  0  0  0  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I8   0  0  0  0  0  0  0  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I9   0  0  0  0  1  0  0  0  0   0   1   0   0   0   0   0   0   0   0   0   0
+## I10  1  0  1  0  0  0  0  0  0   0   0   0   0   0   0   0   0   0   0   0   1
+## I11  0  0  0  0  1  0  0  0  1   0   0   0   0   0   0   0   0   0   0   0   0
+## I12  0  1  0  0  0  0  0  0  0   0   0   0   1   1   0   0   1   1   1   0   0
+## I13  0  1  0  0  0  0  0  0  0   0   0   1   0   1   0   0   1   1   1   0   0
+## I14  0  1  0  0  0  0  0  0  0   0   0   1   1   0   0   0   1   1   1   0   0
+## I15  0  0  0  0  0  0  0  0  0   0   0   0   0   0   0   0   0   0   0   1   0
+## I16  0  0  0  1  0  1  0  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I17  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   0   1   1   0   0
+## I18  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   0   1   0   0
+## I19  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   0   0   0
+## I20  0  0  0  0  0  0  0  0  0   0   0   0   0   0   1   0   0   0   0   0   0
+## I21  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   0
+## I22  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+## I23  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+## I24  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+## I25  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+## I26  0  0  0  0  1  0  0  0  1   0   1   0   0   0   0   0   0   0   0   0   0
+## I27  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+## I28  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+## I29  0  0  0  0  0  0  1  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I30  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I31  0  0  0  0  0  0  1  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I32  0  0  0  0  0  0  1  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I33  0  0  0  0  0  0  0  1  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I34  0  0  0  0  1  0  0  0  1   0   1   0   0   0   0   0   0   0   0   0   0
+## I35  0  0  0  0  0  0  1  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I36  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I37  0  0  0  0  0  0  1  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I38  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I39  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I40  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+## I41  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I42  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I43  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I44  0  0  0  0  1  0  0  0  1   0   1   0   0   0   0   0   0   0   0   0   0
+## I45  0  0  0  0  0  0  0  0  0   0   0   0   0   0   1   0   0   0   0   1   0
+## I46  0  0  0  0  0  0  0  1  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I47  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I48  0  0  0  0  0  0  0  1  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I49  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I50  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I51  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I52  0  0  0  0  0  0  0  1  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I53  1  0  1  0  0  0  0  0  0   1   0   0   0   0   0   0   0   0   0   0   1
+## I54  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+## I55  0  0  0  0  0  0  0  1  0   0   0   0   0   0   0   0   0   0   0   0   0
+## I56  0  1  0  0  0  0  0  0  0   0   0   1   1   1   0   0   1   1   1   0   0
+##     I22 I23 I24 I25 I26 I27 I28 I29 I30 I31 I32 I33 I34 I35 I36 I37 I38 I39 I40
+## I1    0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I2    1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I3    0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I4    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I5    0   0   0   0   1   0   0   0   0   0   0   0   1   0   0   0   0   0   0
+## I6    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I7    0   0   0   0   0   0   0   1   0   1   1   0   0   1   0   1   0   0   0
+## I8    0   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0
+## I9    0   0   0   0   1   0   0   0   0   0   0   0   1   0   0   0   0   0   0
+## I10   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I11   0   0   0   0   1   0   0   0   0   0   0   0   1   0   0   0   0   0   0
+## I12   1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I13   1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I14   1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I15   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I16   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I17   1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I18   1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I19   1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I20   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I21   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I22   0   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I23   1   0   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I24   1   1   0   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I25   1   1   1   0   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I26   0   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0
+## I27   1   1   1   1   0   0   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I28   1   1   1   1   0   1   0   0   0   0   0   0   0   0   0   0   0   0   1
+## I29   0   0   0   0   0   0   0   0   0   1   1   0   0   1   0   1   0   0   0
+## I30   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1   1   0
+## I31   0   0   0   0   0   0   0   1   0   0   1   0   0   1   0   1   0   0   0
+## I32   0   0   0   0   0   0   0   1   0   1   0   0   0   1   0   1   0   0   0
+## I33   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I34   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I35   0   0   0   0   0   0   0   1   0   1   1   0   0   0   0   1   0   0   0
+## I36   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0   1   1   0
+## I37   0   0   0   0   0   0   0   1   0   1   1   0   0   1   0   0   0   0   0
+## I38   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   0   1   0
+## I39   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   0   0
+## I40   1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   0
+## I41   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I42   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I43   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I44   0   0   0   0   1   0   0   0   0   0   0   0   1   0   0   0   0   0   0
+## I45   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I46   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0
+## I47   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I48   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0
+## I49   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I50   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I51   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I52   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0
+## I53   0   0   0   0   0   0   0   0   1   0   0   0   0   0   1   0   1   1   0
+## I54   1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+## I55   0   0   0   0   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0
+## I56   1   1   1   1   0   1   1   0   0   0   0   0   0   0   0   0   0   0   1
+##     I41 I42 I43 I44 I45 I46 I47 I48 I49 I50 I51 I52 I53 I54 I55 I56
+## I1    1   1   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I2    0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I3    1   1   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I4    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I5    0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0
+## I6    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I7    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I8    0   0   0   0   0   1   0   1   0   0   0   1   0   0   1   0
+## I9    0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0
+## I10   1   1   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I11   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0
+## I12   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I13   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I14   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I15   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0
+## I16   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I17   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I18   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I19   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I20   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0
+## I21   1   1   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I22   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I23   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I24   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I25   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I26   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0
+## I27   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I28   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I29   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I30   1   1   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I31   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I32   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I33   0   0   0   0   0   1   0   1   0   0   0   1   0   0   1   0
+## I34   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0
+## I35   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I36   1   1   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I37   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I38   1   1   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I39   1   1   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I40   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   1
+## I41   0   1   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I42   1   0   1   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I43   1   1   0   0   0   0   1   0   1   1   1   0   1   0   0   0
+## I44   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I45   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+## I46   0   0   0   0   0   0   0   1   0   0   0   1   0   0   1   0
+## I47   1   1   1   0   0   0   0   0   1   1   1   0   1   0   0   0
+## I48   0   0   0   0   0   1   0   0   0   0   0   1   0   0   1   0
+## I49   1   1   1   0   0   0   1   0   0   1   1   0   1   0   0   0
+## I50   1   1   1   0   0   0   1   0   1   0   1   0   1   0   0   0
+## I51   1   1   1   0   0   0   1   0   1   1   0   0   1   0   0   0
+## I52   0   0   0   0   0   1   0   1   0   0   0   0   0   0   1   0
+## I53   1   1   1   0   0   0   1   0   1   1   1   0   0   0   0   0
+## I54   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1
+## I55   0   0   0   0   0   1   0   1   0   0   0   1   0   0   0   0
+## I56   0   0   0   0   0   0   0   0   0   0   0   0   0   1   0   0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Convertimos nuestra base de datos en una matriz}
+\NormalTok{AreaMM }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(AreaM)}
+\CommentTok{\#Vamos a hacer una matriz de correlación para tener valores entre 0 y 1 que nos indiquen }
+\CommentTok{\#la correlación entre infividuos}
+\NormalTok{AreaCor }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(}\FunctionTok{t}\NormalTok{(AreaMM))}
+\CommentTok{\#ponemos los valores de la diagonal en 0}
+\FunctionTok{diag}\NormalTok{(AreaCor)}\OtherTok{\textless{}{-}}\DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+Imprimimos el heatmap
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+Vamos a contruir la red
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#Vamos a hacer que los valores de la correlación queden entre 0 y 1}
+\NormalTok{AreaAd1 }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{+}\NormalTok{AreaCor)}\SpecialCharTok{/}\DecValTok{2}
+\CommentTok{\#Ponemos en 0 la diagonal de la matriz}
+\FunctionTok{diag}\NormalTok{(AreaAd1)}\OtherTok{\textless{}{-}}\DecValTok{0}
+\CommentTok{\#Indicamos que los valores mayores a 0.75 se les ponga un 1}
+\NormalTok{Acerouno }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(AreaAd1}\SpecialCharTok{\textgreater{}}\FloatTok{0.75}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\CommentTok{\#Convertimos a matriz}
+\NormalTok{Acerouno }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(Acerouno)}
+
+\CommentTok{\#Cargamos la libreria de igraph}
+\FunctionTok{library}\NormalTok{(igraph)}
+
+\CommentTok{\#Convertimos nuestra matriz en una matriz de Adyacencia}
+\NormalTok{AdyacenciaA }\OtherTok{\textless{}{-}} \FunctionTok{graph\_from\_adjacency\_matrix}\NormalTok{(Acerouno)}
+
+
+\FunctionTok{V}\NormalTok{(AdyacenciaA)}\SpecialCharTok{$}\NormalTok{size}\OtherTok{\textless{}{-}}\FunctionTok{degree}\NormalTok{(AdyacenciaV,}\AttributeTok{mode=}\StringTok{"in"}\NormalTok{)}\SpecialCharTok{*}\DecValTok{3}  \CommentTok{\#Hacemos el tamaño de los nodos por el valor del degree de entrada}
+\FunctionTok{V}\NormalTok{(AdyacenciaA)}\SpecialCharTok{$}\NormalTok{color}\OtherTok{=}\StringTok{"\#96F7D2"} \CommentTok{\#les ponemos colorcito}
+\FunctionTok{V}\NormalTok{(AdyacenciaA)}\SpecialCharTok{$}\NormalTok{shape}\OtherTok{=}\StringTok{"sphere"} \CommentTok{\#establecemos forma}
+\FunctionTok{E}\NormalTok{(AdyacenciaA)}\SpecialCharTok{$}\NormalTok{color}\OtherTok{=}\StringTok{"white"} \CommentTok{\#damos color a las conexiones}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+Separamos por clusters
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eb }\OtherTok{\textless{}{-}} \FunctionTok{cluster\_edge\_betweenness}\NormalTok{(AdyacenciaA, }\AttributeTok{directed =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{table}\NormalTok{(}\FunctionTok{membership}\NormalTok{(eb))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  1  2  3  4  5  6  7  8  9 10 11 
+## 16 16  1  6  1  6  6  1  1  1  1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Nos indica la presencia de 11 clusters}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+Por, último haremos uno con la fuente principal de información
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FuenteM }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"fuente de información.xlsx {-} Hoja1.csv"}\NormalTok{)}
+\DocumentationTok{\#\# Establecemos los nombres de las columnas en la fila 1}
+\FunctionTok{rownames}\NormalTok{(FuenteM)}\OtherTok{\textless{}{-}}\NormalTok{FuenteM[,}\DecValTok{1}\NormalTok{]}
+\CommentTok{\#Eliminamos la fila 1 de la base de datos que contiene nombres}
+\NormalTok{FuenteM }\OtherTok{\textless{}{-}}\NormalTok{ FuenteM[,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\CommentTok{\#Visualizamos nuestra base de datos}
+\NormalTok{FuenteM}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             individuo1 individuo2 individuo3 individuo4 individuo5 individuo6
+## individuo1           0          0          1          1          0          1
+## individuo2           0          0          0          0          0          0
+## individuo3           1          0          0          1          0          1
+## individuo4           1          0          1          0          0          1
+## individuo5           0          0          0          0          0          0
+## individuo6           1          0          1          1          0          0
+## individuo7           0          0          0          0          1          0
+## individuo8           1          0          1          1          0          1
+## individuo9           1          0          1          1          0          1
+## individuo10          0          1          0          0          0          0
+## individuo11          0          1          0          0          0          0
+## individuo12          1          0          1          1          0          1
+## individuo13          0          1          0          0          0          0
+## individuo14          0          0          0          0          1          0
+## individuo15          0          1          0          0          0          0
+## individuo16          0          0          0          0          1          0
+## individuo17          0          1          0          0          0          0
+## individuo18          1          0          1          1          0          1
+## individuo19          1          0          1          1          0          1
+## individuo20          1          0          1          1          0          1
+## individuo21          1          0          1          1          0          1
+## individuo22          0          0          0          0          1          0
+## individuo23          0          1          0          0          0          0
+## individuo24          0          1          0          0          0          0
+## individuo25          1          0          1          1          0          1
+## individuo26          1          0          1          1          0          1
+## individuo27          0          1          0          0          0          0
+## individuo28          0          1          0          0          0          0
+## individuo29          0          0          0          0          1          0
+## individuo30          0          1          0          0          0          0
+## individuo31          1          0          1          1          0          1
+## individuo32          1          0          1          1          0          1
+## individuo33          0          1          0          0          0          0
+## individuo34          1          0          1          1          0          1
+## individuo35          1          0          1          1          0          1
+## individuo36          1          0          1          1          0          1
+## individuo37          1          0          1          1          0          1
+## individuo38          1          0          1          1          0          1
+## individuo39          0          0          0          0          1          0
+## individuo40          0          1          0          0          0          0
+## individuo41          0          1          0          0          0          0
+## individuo42          0          0          0          0          1          0
+## individuo43          0          1          0          0          0          0
+## individuo44          0          0          0          0          1          0
+## individuo45          1          0          1          1          0          1
+## individuo46          0          0          0          0          1          0
+## individuo47          0          1          0          0          0          0
+## individuo48          1          0          1          1          0          1
+## individuo49          0          1          0          0          0          0
+## individuo50          0          1          0          0          0          0
+## individuo51          0          1          0          0          0          0
+## individuo52          0          0          0          0          1          0
+## individuo53          1          0          1          1          0          1
+## individuo54          1          0          1          1          0          1
+## individuo55          0          1          0          0          0          0
+## individuo56          1          0          1          1          0          1
+##             individuo7 individuo8 individuo9 individuo10 individuo11
+## individuo1           0          1          1           0           0
+## individuo2           0          0          0           1           1
+## individuo3           0          1          1           0           0
+## individuo4           0          1          1           0           0
+## individuo5           1          0          0           0           0
+## individuo6           0          1          1           0           0
+## individuo7           0          0          0           0           0
+## individuo8           0          0          1           0           0
+## individuo9           0          1          0           0           0
+## individuo10          0          0          0           0           1
+## individuo11          0          0          0           1           0
+## individuo12          0          1          1           0           0
+## individuo13          0          0          0           1           1
+## individuo14          1          0          0           0           0
+## individuo15          0          0          0           1           1
+## individuo16          1          0          0           0           0
+## individuo17          0          0          0           1           1
+## individuo18          0          1          1           0           0
+## individuo19          0          1          1           0           0
+## individuo20          0          1          1           0           0
+## individuo21          0          1          1           0           0
+## individuo22          1          0          0           0           0
+## individuo23          0          0          0           1           1
+## individuo24          0          0          0           1           1
+## individuo25          0          1          1           0           0
+## individuo26          0          1          1           0           0
+## individuo27          0          0          0           1           1
+## individuo28          0          0          0           1           1
+## individuo29          1          0          0           0           0
+## individuo30          0          0          0           1           1
+## individuo31          0          1          1           0           0
+## individuo32          0          1          1           0           0
+## individuo33          0          0          0           1           1
+## individuo34          0          1          1           0           0
+## individuo35          0          1          1           0           0
+## individuo36          0          1          1           0           0
+## individuo37          0          1          1           0           0
+## individuo38          0          1          1           0           0
+## individuo39          1          0          0           0           0
+## individuo40          0          0          0           1           1
+## individuo41          0          0          0           1           1
+## individuo42          1          0          0           0           0
+## individuo43          0          0          0           1           1
+## individuo44          1          0          0           0           0
+## individuo45          0          1          1           0           0
+## individuo46          1          0          0           0           0
+## individuo47          0          0          0           1           1
+## individuo48          0          1          1           0           0
+## individuo49          0          0          0           1           1
+## individuo50          0          0          0           1           1
+## individuo51          0          0          0           1           1
+## individuo52          1          0          0           0           0
+## individuo53          0          1          1           0           0
+## individuo54          0          1          1           0           0
+## individuo55          0          0          0           1           1
+## individuo56          0          1          1           0           0
+##             individuo12 individuo13 individuo14 individuo15 individuo16
+## individuo1            1           0           0           0           0
+## individuo2            0           1           0           1           0
+## individuo3            1           0           0           0           0
+## individuo4            1           0           0           0           0
+## individuo5            0           0           1           0           1
+## individuo6            1           0           0           0           0
+## individuo7            0           0           1           0           1
+## individuo8            1           0           0           0           0
+## individuo9            1           0           0           0           0
+## individuo10           0           1           0           1           0
+## individuo11           0           1           0           1           0
+## individuo12           0           0           0           0           0
+## individuo13           0           0           0           1           0
+## individuo14           0           0           0           0           1
+## individuo15           0           1           0           0           0
+## individuo16           0           0           1           0           0
+## individuo17           0           1           0           1           0
+## individuo18           1           0           0           0           0
+## individuo19           1           0           0           0           0
+## individuo20           1           0           0           0           0
+## individuo21           1           0           0           0           0
+## individuo22           0           0           1           0           1
+## individuo23           0           1           0           1           0
+## individuo24           0           1           0           1           0
+## individuo25           1           0           0           0           0
+## individuo26           1           0           0           0           0
+## individuo27           0           1           0           1           0
+## individuo28           0           1           0           1           0
+## individuo29           0           0           1           0           1
+## individuo30           0           1           0           1           0
+## individuo31           1           0           0           0           0
+## individuo32           1           0           0           0           0
+## individuo33           0           1           0           1           0
+## individuo34           1           0           0           0           0
+## individuo35           1           0           0           0           0
+## individuo36           1           0           0           0           0
+## individuo37           1           0           0           0           0
+## individuo38           1           0           0           0           0
+## individuo39           0           0           1           0           1
+## individuo40           0           1           0           1           0
+## individuo41           0           1           0           1           0
+## individuo42           0           0           1           0           1
+## individuo43           0           1           0           1           0
+## individuo44           0           0           1           0           1
+## individuo45           1           0           0           0           0
+## individuo46           0           0           1           0           1
+## individuo47           0           1           0           1           0
+## individuo48           1           0           0           0           0
+## individuo49           0           1           0           1           0
+## individuo50           0           1           0           1           0
+## individuo51           0           1           0           1           0
+## individuo52           0           0           1           0           1
+## individuo53           1           0           0           0           0
+## individuo54           1           0           0           0           0
+## individuo55           0           1           0           1           0
+## individuo56           1           0           0           0           0
+##             individuo17 individuo18 individuo19 individuo20 individuo21
+## individuo1            0           1           1           1           1
+## individuo2            1           0           0           0           0
+## individuo3            0           1           1           1           1
+## individuo4            0           1           1           1           1
+## individuo5            0           0           0           0           0
+## individuo6            0           1           1           1           1
+## individuo7            0           0           0           0           0
+## individuo8            0           1           1           1           1
+## individuo9            0           1           1           1           1
+## individuo10           1           0           0           0           0
+## individuo11           1           0           0           0           0
+## individuo12           0           1           1           1           1
+## individuo13           1           0           0           0           0
+## individuo14           0           0           0           0           0
+## individuo15           1           0           0           0           0
+## individuo16           0           0           0           0           0
+## individuo17           0           0           0           0           0
+## individuo18           0           0           1           1           1
+## individuo19           0           1           0           1           1
+## individuo20           0           1           1           0           1
+## individuo21           0           1           1           1           0
+## individuo22           0           0           0           0           0
+## individuo23           1           0           0           0           0
+## individuo24           1           0           0           0           0
+## individuo25           0           1           1           1           1
+## individuo26           0           1           1           1           1
+## individuo27           1           0           0           0           0
+## individuo28           1           0           0           0           0
+## individuo29           0           0           0           0           0
+## individuo30           1           0           0           0           0
+## individuo31           0           1           1           1           1
+## individuo32           0           1           1           1           1
+## individuo33           1           0           0           0           0
+## individuo34           0           1           1           1           1
+## individuo35           0           1           1           1           1
+## individuo36           0           1           1           1           1
+## individuo37           0           1           1           1           1
+## individuo38           0           1           1           1           1
+## individuo39           0           0           0           0           0
+## individuo40           1           0           0           0           0
+## individuo41           1           0           0           0           0
+## individuo42           0           0           0           0           0
+## individuo43           1           0           0           0           0
+## individuo44           0           0           0           0           0
+## individuo45           0           1           1           1           1
+## individuo46           0           0           0           0           0
+## individuo47           1           0           0           0           0
+## individuo48           0           1           1           1           1
+## individuo49           1           0           0           0           0
+## individuo50           1           0           0           0           0
+## individuo51           1           0           0           0           0
+## individuo52           0           0           0           0           0
+## individuo53           0           1           1           1           1
+## individuo54           0           1           1           1           1
+## individuo55           1           0           0           0           0
+## individuo56           0           1           1           1           1
+##             individuo22 individuo23 individuo24 individuo25 individuo26
+## individuo1            0           0           0           1           1
+## individuo2            0           1           1           0           0
+## individuo3            0           0           0           1           1
+## individuo4            0           0           0           1           1
+## individuo5            1           0           0           0           0
+## individuo6            0           0           0           1           1
+## individuo7            1           0           0           0           0
+## individuo8            0           0           0           1           1
+## individuo9            0           0           0           1           1
+## individuo10           0           1           1           0           0
+## individuo11           0           1           1           0           0
+## individuo12           0           0           0           1           1
+## individuo13           0           1           1           0           0
+## individuo14           1           0           0           0           0
+## individuo15           0           1           1           0           0
+## individuo16           1           0           0           0           0
+## individuo17           0           1           1           0           0
+## individuo18           0           0           0           1           1
+## individuo19           0           0           0           1           1
+## individuo20           0           0           0           1           1
+## individuo21           0           0           0           1           1
+## individuo22           0           0           0           0           0
+## individuo23           0           0           1           0           0
+## individuo24           0           1           0           0           0
+## individuo25           0           0           0           0           1
+## individuo26           0           0           0           1           0
+## individuo27           0           1           1           0           0
+## individuo28           0           1           1           0           0
+## individuo29           1           0           0           0           0
+## individuo30           0           1           1           0           0
+## individuo31           0           0           0           1           1
+## individuo32           0           0           0           1           1
+## individuo33           0           1           1           0           0
+## individuo34           0           0           0           1           1
+## individuo35           0           0           0           1           1
+## individuo36           0           0           0           1           1
+## individuo37           0           0           0           1           1
+## individuo38           0           0           0           1           1
+## individuo39           1           0           0           0           0
+## individuo40           0           1           1           0           0
+## individuo41           0           1           1           0           0
+## individuo42           1           0           0           0           0
+## individuo43           0           1           1           0           0
+## individuo44           1           0           0           0           0
+## individuo45           0           0           0           1           1
+## individuo46           1           0           0           0           0
+## individuo47           0           1           1           0           0
+## individuo48           0           0           0           1           1
+## individuo49           0           1           1           0           0
+## individuo50           0           1           1           0           0
+## individuo51           0           1           1           0           0
+## individuo52           1           0           0           0           0
+## individuo53           0           0           0           1           1
+## individuo54           0           0           0           1           1
+## individuo55           0           1           1           0           0
+## individuo56           0           0           0           1           1
+##             individuo27 individuo28 individuo29 individuo30 individuo31
+## individuo1            0           0           0           0           1
+## individuo2            1           1           0           1           0
+## individuo3            0           0           0           0           1
+## individuo4            0           0           0           0           1
+## individuo5            0           0           1           0           0
+## individuo6            0           0           0           0           1
+## individuo7            0           0           1           0           0
+## individuo8            0           0           0           0           1
+## individuo9            0           0           0           0           1
+## individuo10           1           1           0           1           0
+## individuo11           1           1           0           1           0
+## individuo12           0           0           0           0           1
+## individuo13           1           1           0           1           0
+## individuo14           0           0           1           0           0
+## individuo15           1           1           0           1           0
+## individuo16           0           0           1           0           0
+## individuo17           1           1           0           1           0
+## individuo18           0           0           0           0           1
+## individuo19           0           0           0           0           1
+## individuo20           0           0           0           0           1
+## individuo21           0           0           0           0           1
+## individuo22           0           0           1           0           0
+## individuo23           1           1           0           1           0
+## individuo24           1           1           0           1           0
+## individuo25           0           0           0           0           1
+## individuo26           0           0           0           0           1
+## individuo27           0           1           0           1           0
+## individuo28           1           0           0           1           0
+## individuo29           0           0           0           0           0
+## individuo30           1           1           0           0           0
+## individuo31           0           0           0           0           0
+## individuo32           0           0           0           0           1
+## individuo33           1           1           0           1           0
+## individuo34           0           0           0           0           1
+## individuo35           0           0           0           0           1
+## individuo36           0           0           0           0           1
+## individuo37           0           0           0           0           1
+## individuo38           0           0           0           0           1
+## individuo39           0           0           1           0           0
+## individuo40           1           1           0           1           0
+## individuo41           1           1           0           1           0
+## individuo42           0           0           1           0           0
+## individuo43           1           1           0           1           0
+## individuo44           0           0           1           0           0
+## individuo45           0           0           0           0           1
+## individuo46           0           0           1           0           0
+## individuo47           1           1           0           1           0
+## individuo48           0           0           0           0           1
+## individuo49           1           1           0           1           0
+## individuo50           1           1           0           1           0
+## individuo51           1           1           0           1           0
+## individuo52           0           0           1           0           0
+## individuo53           0           0           0           0           1
+## individuo54           0           0           0           0           1
+## individuo55           1           1           0           1           0
+## individuo56           0           0           0           0           1
+##             individuo32 individuo33 individuo34 individuo35 individuo36
+## individuo1            1           0           1           1           1
+## individuo2            0           1           0           0           0
+## individuo3            1           0           1           1           1
+## individuo4            1           0           1           1           1
+## individuo5            0           0           0           0           0
+## individuo6            1           0           1           1           1
+## individuo7            0           0           0           0           0
+## individuo8            1           0           1           1           1
+## individuo9            1           0           1           1           1
+## individuo10           0           1           0           0           0
+## individuo11           0           1           0           0           0
+## individuo12           1           0           1           1           1
+## individuo13           0           1           0           0           0
+## individuo14           0           0           0           0           0
+## individuo15           0           1           0           0           0
+## individuo16           0           0           0           0           0
+## individuo17           0           1           0           0           0
+## individuo18           1           0           1           1           1
+## individuo19           1           0           1           1           1
+## individuo20           1           0           1           1           1
+## individuo21           1           0           1           1           1
+## individuo22           0           0           0           0           0
+## individuo23           0           1           0           0           0
+## individuo24           0           1           0           0           0
+## individuo25           1           0           1           1           1
+## individuo26           1           0           1           1           1
+## individuo27           0           1           0           0           0
+## individuo28           0           1           0           0           0
+## individuo29           0           0           0           0           0
+## individuo30           0           1           0           0           0
+## individuo31           1           0           1           1           1
+## individuo32           0           0           1           1           1
+## individuo33           0           0           0           0           0
+## individuo34           1           0           0           1           1
+## individuo35           1           0           1           0           1
+## individuo36           1           0           1           1           0
+## individuo37           1           0           1           1           1
+## individuo38           1           0           1           1           1
+## individuo39           0           0           0           0           0
+## individuo40           0           1           0           0           0
+## individuo41           0           1           0           0           0
+## individuo42           0           0           0           0           0
+## individuo43           0           1           0           0           0
+## individuo44           0           0           0           0           0
+## individuo45           1           0           1           1           1
+## individuo46           0           0           0           0           0
+## individuo47           0           1           0           0           0
+## individuo48           1           0           1           1           1
+## individuo49           0           1           0           0           0
+## individuo50           0           1           0           0           0
+## individuo51           0           1           0           0           0
+## individuo52           0           0           0           0           0
+## individuo53           1           0           1           1           1
+## individuo54           1           0           1           1           1
+## individuo55           0           1           0           0           0
+## individuo56           1           0           1           1           1
+##             individuo37 individuo38 individuo39 individuo40 individuo41
+## individuo1            1           1           0           0           0
+## individuo2            0           0           0           1           1
+## individuo3            1           1           0           0           0
+## individuo4            1           1           0           0           0
+## individuo5            0           0           1           0           0
+## individuo6            1           1           0           0           0
+## individuo7            0           0           1           0           0
+## individuo8            1           1           0           0           0
+## individuo9            1           1           0           0           0
+## individuo10           0           0           0           1           1
+## individuo11           0           0           0           1           1
+## individuo12           1           1           0           0           0
+## individuo13           0           0           0           1           1
+## individuo14           0           0           1           0           0
+## individuo15           0           0           0           1           1
+## individuo16           0           0           1           0           0
+## individuo17           0           0           0           1           1
+## individuo18           1           1           0           0           0
+## individuo19           1           1           0           0           0
+## individuo20           1           1           0           0           0
+## individuo21           1           1           0           0           0
+## individuo22           0           0           1           0           0
+## individuo23           0           0           0           1           1
+## individuo24           0           0           0           1           1
+## individuo25           1           1           0           0           0
+## individuo26           1           1           0           0           0
+## individuo27           0           0           0           1           1
+## individuo28           0           0           0           1           1
+## individuo29           0           0           1           0           0
+## individuo30           0           0           0           1           1
+## individuo31           1           1           0           0           0
+## individuo32           1           1           0           0           0
+## individuo33           0           0           0           1           1
+## individuo34           1           1           0           0           0
+## individuo35           1           1           0           0           0
+## individuo36           1           1           0           0           0
+## individuo37           0           1           0           0           0
+## individuo38           1           0           0           0           0
+## individuo39           0           0           0           0           0
+## individuo40           0           0           0           0           1
+## individuo41           0           0           0           1           0
+## individuo42           0           0           1           0           0
+## individuo43           0           0           0           1           1
+## individuo44           0           0           1           0           0
+## individuo45           1           1           0           0           0
+## individuo46           0           0           1           0           0
+## individuo47           0           0           0           1           1
+## individuo48           1           1           0           0           0
+## individuo49           0           0           0           1           1
+## individuo50           0           0           0           1           1
+## individuo51           0           0           0           1           1
+## individuo52           0           0           1           0           0
+## individuo53           1           1           0           0           0
+## individuo54           1           1           0           0           0
+## individuo55           0           0           0           1           1
+## individuo56           1           1           0           0           0
+##             individuo42 individuo43 individuo44 individuo45 individuo46
+## individuo1            0           0           0           1           0
+## individuo2            0           1           0           0           0
+## individuo3            0           0           0           1           0
+## individuo4            0           0           0           1           0
+## individuo5            1           0           1           0           1
+## individuo6            0           0           0           1           0
+## individuo7            1           0           1           0           1
+## individuo8            0           0           0           1           0
+## individuo9            0           0           0           1           0
+## individuo10           0           1           0           0           0
+## individuo11           0           1           0           0           0
+## individuo12           0           0           0           1           0
+## individuo13           0           1           0           0           0
+## individuo14           1           0           1           0           1
+## individuo15           0           1           0           0           0
+## individuo16           1           0           1           0           1
+## individuo17           0           1           0           0           0
+## individuo18           0           0           0           1           0
+## individuo19           0           0           0           1           0
+## individuo20           0           0           0           1           0
+## individuo21           0           0           0           1           0
+## individuo22           1           0           1           0           1
+## individuo23           0           1           0           0           0
+## individuo24           0           1           0           0           0
+## individuo25           0           0           0           1           0
+## individuo26           0           0           0           1           0
+## individuo27           0           1           0           0           0
+## individuo28           0           1           0           0           0
+## individuo29           1           0           1           0           1
+## individuo30           0           1           0           0           0
+## individuo31           0           0           0           1           0
+## individuo32           0           0           0           1           0
+## individuo33           0           1           0           0           0
+## individuo34           0           0           0           1           0
+## individuo35           0           0           0           1           0
+## individuo36           0           0           0           1           0
+## individuo37           0           0           0           1           0
+## individuo38           0           0           0           1           0
+## individuo39           1           0           1           0           1
+## individuo40           0           1           0           0           0
+## individuo41           0           1           0           0           0
+## individuo42           0           0           1           0           1
+## individuo43           0           0           0           0           0
+## individuo44           1           0           0           0           1
+## individuo45           0           0           0           0           0
+## individuo46           1           0           0           0           0
+## individuo47           0           1           0           0           0
+## individuo48           0           0           0           1           0
+## individuo49           0           1           0           0           0
+## individuo50           0           1           0           0           0
+## individuo51           0           1           0           0           0
+## individuo52           1           0           1           0           1
+## individuo53           0           0           0           1           0
+## individuo54           0           0           0           1           0
+## individuo55           0           1           0           0           0
+## individuo56           0           0           0           1           0
+##             individuo47 individuo48 individuo49 individuo50 individuo51
+## individuo1            0           1           0           0           0
+## individuo2            1           0           1           1           1
+## individuo3            0           1           0           0           0
+## individuo4            0           1           0           0           0
+## individuo5            0           0           0           0           0
+## individuo6            0           1           0           0           0
+## individuo7            0           0           0           0           0
+## individuo8            0           1           0           0           0
+## individuo9            0           1           0           0           0
+## individuo10           1           0           1           1           1
+## individuo11           1           0           1           1           1
+## individuo12           0           1           0           0           0
+## individuo13           1           0           1           1           1
+## individuo14           0           0           0           0           0
+## individuo15           1           0           1           1           1
+## individuo16           0           0           0           0           0
+## individuo17           1           0           1           1           1
+## individuo18           0           1           0           0           0
+## individuo19           0           1           0           0           0
+## individuo20           0           1           0           0           0
+## individuo21           0           1           0           0           0
+## individuo22           0           0           0           0           0
+## individuo23           1           0           1           1           1
+## individuo24           1           0           1           1           1
+## individuo25           0           1           0           0           0
+## individuo26           0           1           0           0           0
+## individuo27           1           0           1           1           1
+## individuo28           1           0           1           1           1
+## individuo29           0           0           0           0           0
+## individuo30           1           0           1           1           1
+## individuo31           0           1           0           0           0
+## individuo32           0           1           0           0           0
+## individuo33           1           0           1           1           1
+## individuo34           0           1           0           0           0
+## individuo35           0           1           0           0           0
+## individuo36           0           1           0           0           0
+## individuo37           0           1           0           0           0
+## individuo38           0           1           0           0           0
+## individuo39           0           0           0           0           0
+## individuo40           1           0           1           1           1
+## individuo41           1           0           1           1           1
+## individuo42           0           0           0           0           0
+## individuo43           1           0           1           1           1
+## individuo44           0           0           0           0           0
+## individuo45           0           1           0           0           0
+## individuo46           0           0           0           0           0
+## individuo47           0           0           1           1           1
+## individuo48           0           0           0           0           0
+## individuo49           1           0           0           1           1
+## individuo50           1           0           1           0           1
+## individuo51           1           0           1           1           0
+## individuo52           0           0           0           0           0
+## individuo53           0           1           0           0           0
+## individuo54           0           1           0           0           0
+## individuo55           1           0           1           1           1
+## individuo56           0           1           0           0           0
+##             individuo52 individuo53 individuo54 individuo55 individuo56
+## individuo1            0           1           1           0           1
+## individuo2            0           0           0           1           0
+## individuo3            0           1           1           0           1
+## individuo4            0           1           1           0           1
+## individuo5            1           0           0           0           0
+## individuo6            0           1           1           0           1
+## individuo7            1           0           0           0           0
+## individuo8            0           1           1           0           1
+## individuo9            0           1           1           0           1
+## individuo10           0           0           0           1           0
+## individuo11           0           0           0           1           0
+## individuo12           0           1           1           0           1
+## individuo13           0           0           0           1           0
+## individuo14           1           0           0           0           0
+## individuo15           0           0           0           1           0
+## individuo16           1           0           0           0           0
+## individuo17           0           0           0           1           0
+## individuo18           0           1           1           0           1
+## individuo19           0           1           1           0           1
+## individuo20           0           1           1           0           1
+## individuo21           0           1           1           0           1
+## individuo22           1           0           0           0           0
+## individuo23           0           0           0           1           0
+## individuo24           0           0           0           1           0
+## individuo25           0           1           1           0           1
+## individuo26           0           1           1           0           1
+## individuo27           0           0           0           1           0
+## individuo28           0           0           0           1           0
+## individuo29           1           0           0           0           0
+## individuo30           0           0           0           1           0
+## individuo31           0           1           1           0           1
+## individuo32           0           1           1           0           1
+## individuo33           0           0           0           1           0
+## individuo34           0           1           1           0           1
+## individuo35           0           1           1           0           1
+## individuo36           0           1           1           0           1
+## individuo37           0           1           1           0           1
+## individuo38           0           1           1           0           1
+## individuo39           1           0           0           0           0
+## individuo40           0           0           0           1           0
+## individuo41           0           0           0           1           0
+## individuo42           1           0           0           0           0
+## individuo43           0           0           0           1           0
+## individuo44           1           0           0           0           0
+## individuo45           0           1           1           0           1
+## individuo46           1           0           0           0           0
+## individuo47           0           0           0           1           0
+## individuo48           0           1           1           0           1
+## individuo49           0           0           0           1           0
+## individuo50           0           0           0           1           0
+## individuo51           0           0           0           1           0
+## individuo52           0           0           0           0           0
+## individuo53           0           0           1           0           1
+## individuo54           0           1           0           0           1
+## individuo55           0           0           0           0           0
+## individuo56           0           1           1           0           0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Convertimos nuestra base de datos en una matriz}
+\NormalTok{FuenteMM }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(FuenteM)}
+\CommentTok{\#Vamos a hacer una matriz de correlación para tener valores entre 0 y 1 que nos indiquen }
+\CommentTok{\#la correlación entre infividuos}
+\NormalTok{FuenteCor }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(}\FunctionTok{t}\NormalTok{(FuenteMM))}
+\CommentTok{\#ponemos los valores de la diagonal en 0}
+\FunctionTok{diag}\NormalTok{(FuenteCor)}\OtherTok{\textless{}{-}}\DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+Imprimimos el heatmap
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+Vamos a contruir la red
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#Vamos a hacer que los valores de la correlación queden entre 0 y 1}
+\NormalTok{FuenteAd1 }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{+}\NormalTok{FuenteCor)}\SpecialCharTok{/}\DecValTok{2}
+\CommentTok{\#Ponemos en 0 la diagonal de la matriz}
+\FunctionTok{diag}\NormalTok{(FuenteAd1)}\OtherTok{\textless{}{-}}\DecValTok{0}
+\CommentTok{\#Indicamos que los valores mayores a 0.75 se les ponga un 1}
+\NormalTok{Fuenteuno }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(FuenteAd1}\SpecialCharTok{\textgreater{}}\FloatTok{0.75}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\CommentTok{\#Convertimos a matriz}
+\NormalTok{Fuenteuno }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(Fuenteuno)}
+
+\CommentTok{\#Cargamos la libreria de igraph}
+\FunctionTok{library}\NormalTok{(igraph)}
+
+\CommentTok{\#Convertimos nuestra matriz en una matriz de Adyacencia}
+\NormalTok{AdyacenciaF }\OtherTok{\textless{}{-}} \FunctionTok{graph\_from\_adjacency\_matrix}\NormalTok{(Fuenteuno)}
+
+
+\FunctionTok{V}\NormalTok{(AdyacenciaF)}\SpecialCharTok{$}\NormalTok{size}\OtherTok{\textless{}{-}}\FunctionTok{degree}\NormalTok{(AdyacenciaF,}\AttributeTok{mode=}\StringTok{"in"}\NormalTok{)}\SpecialCharTok{*}\DecValTok{3}  \CommentTok{\#Hacemos el tamaño de los nodos por el valor del degree de entrada}
+\FunctionTok{V}\NormalTok{(AdyacenciaF)}\SpecialCharTok{$}\NormalTok{color}\OtherTok{=}\StringTok{"\#96F7D2"} \CommentTok{\#les ponemos colorcito}
+\FunctionTok{V}\NormalTok{(AdyacenciaF)}\SpecialCharTok{$}\NormalTok{shape}\OtherTok{=}\StringTok{"sphere"} \CommentTok{\#establecemos forma}
+\FunctionTok{E}\NormalTok{(AdyacenciaF)}\SpecialCharTok{$}\NormalTok{color}\OtherTok{=}\StringTok{"white"} \CommentTok{\#damos color a las conexiones}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+Separamos por clusters
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eb }\OtherTok{\textless{}{-}} \FunctionTok{cluster\_edge\_betweenness}\NormalTok{(AdyacenciaF, }\AttributeTok{directed =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{eb}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## IGRAPH clustering edge betweenness, groups: 3, mod: 0.57
+## + groups:
+##   $`1`
+##    [1] "individuo1"  "individuo3"  "individuo4"  "individuo6"  "individuo8" 
+##    [6] "individuo9"  "individuo12" "individuo18" "individuo19" "individuo20"
+##   [11] "individuo21" "individuo25" "individuo26" "individuo31" "individuo32"
+##   [16] "individuo34" "individuo35" "individuo36" "individuo37" "individuo38"
+##   [21] "individuo45" "individuo48" "individuo53" "individuo54" "individuo56"
+##   
+##   $`2`
+##    [1] "individuo2"  "individuo10" "individuo11" "individuo13" "individuo15"
+##    [6] "individuo17" "individuo23" "individuo24" "individuo27" "individuo28"
+##   + ... omitted several groups/vertices
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(}\FunctionTok{membership}\NormalTok{(eb))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  1  2  3 
+## 25 20 11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Nos indica la presencia de 3 clusters}
+\CommentTok{\#El primero con 25 personas es el grupo que se informo de la vacunación por medio del comunicado oficial}
+\CommentTok{\#El segunfo de 20 personas se informo por medio de noticias en redes sociales}
+\CommentTok{\#El tercero de 11 por medio de articulos cientificos}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-21-1.pdf}
+Vamos a generar una red donde observemos los grupos de edad
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Edad }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"edad.xlsx {-} Hoja1.csv"}\NormalTok{)}
+\DocumentationTok{\#\# Establecemos los nombres de las columnas en la fila 1}
+\FunctionTok{rownames}\NormalTok{(Edad)}\OtherTok{\textless{}{-}}\NormalTok{Edad[,}\DecValTok{1}\NormalTok{]}
+\CommentTok{\#Eliminamos la fila 1 de la base de datos que contiene nombres}
+\NormalTok{Edad }\OtherTok{\textless{}{-}}\NormalTok{ Edad[,}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{]}
+\CommentTok{\#Visualizamos nuestra base de datos}
+\NormalTok{Edad}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             individuo1 individuo2 individuo3 individuo4 individuo5 individuo6
+## individuo1           0          0          0          0          0          0
+## individuo2           0          0          0          1          0          0
+## individuo3           0          0          0          0          0          0
+## individuo4           0          1          0          0          0          0
+## individuo5           0          0          0          0          0          1
+## individuo6           0          0          0          0          1          0
+## individuo7           0          1          0          1          0          0
+## individuo8           0          0          1          0          0          0
+## individuo9           0          0          1          0          0          0
+## individuo10          0          1          0          1          0          0
+## individuo11          1          0          0          0          0          0
+## individuo12          0          0          0          0          1          1
+## individuo13          0          1          0          1          0          0
+## individuo14          0          0          0          0          1          1
+## individuo15          0          1          0          1          0          0
+## individuo16          1          0          0          0          0          0
+## individuo17          0          1          0          1          0          0
+## individuo18          0          1          0          1          0          0
+## individuo19          0          0          0          0          1          1
+## individuo20          0          1          0          1          0          0
+## individuo21          0          1          0          1          0          0
+## individuo22          0          0          0          0          1          1
+## individuo23          0          1          0          1          0          0
+## individuo24          0          1          0          1          0          0
+## individuo25          0          1          0          1          0          0
+## individuo26          1          0          0          0          0          0
+## individuo27          0          1          0          1          0          0
+## individuo28          0          1          0          1          0          0
+## individuo29          0          1          0          1          0          0
+## individuo30          0          1          0          1          0          0
+## individuo31          0          1          0          1          0          0
+## individuo32          0          1          0          1          0          0
+## individuo33          0          1          0          1          0          0
+## individuo34          0          1          0          1          0          0
+## individuo35          1          0          0          0          0          0
+## individuo36          0          1          0          1          0          0
+## individuo37          1          0          0          0          0          0
+## individuo38          0          1          0          1          0          0
+## individuo39          0          1          0          1          0          0
+## individuo40          0          0          0          0          1          1
+## individuo41          0          0          0          0          1          1
+## individuo42          0          1          0          1          0          0
+## individuo43          0          1          0          1          0          0
+## individuo44          0          0          1          0          0          0
+## individuo45          0          1          0          1          0          0
+## individuo46          0          1          0          1          0          0
+## individuo47          0          1          0          1          0          0
+## individuo48          0          1          0          1          0          0
+## individuo49          0          1          0          1          0          0
+## individuo50          0          1          0          1          0          0
+## individuo51          0          1          0          1          0          0
+## individuo52          0          1          0          1          0          0
+## individuo53          0          1          0          1          0          0
+## individuo54          0          1          0          1          0          0
+## individuo55          0          1          0          1          0          0
+## individuo56          0          1          0          1          0          0
+##             individuo7 individuo8 individuo9 individuo10 individuo11
+## individuo1           0          0          0           0           1
+## individuo2           1          0          0           1           0
+## individuo3           0          1          1           0           0
+## individuo4           1          0          0           1           0
+## individuo5           0          0          0           0           0
+## individuo6           0          0          0           0           0
+## individuo7           0          0          0           1           0
+## individuo8           0          0          1           0           0
+## individuo9           0          1          0           0           0
+## individuo10          1          0          0           0           0
+## individuo11          0          0          0           0           0
+## individuo12          0          0          0           0           0
+## individuo13          1          0          0           1           0
+## individuo14          0          0          0           0           0
+## individuo15          1          0          0           1           0
+## individuo16          0          0          0           0           1
+## individuo17          1          0          0           1           0
+## individuo18          1          0          0           1           0
+## individuo19          0          0          0           0           0
+## individuo20          1          0          0           1           0
+## individuo21          1          0          0           1           0
+## individuo22          0          0          0           0           0
+## individuo23          1          0          0           1           0
+## individuo24          1          0          0           1           0
+## individuo25          1          0          0           1           0
+## individuo26          0          0          0           0           1
+## individuo27          1          0          0           1           0
+## individuo28          1          0          0           1           0
+## individuo29          1          0          0           1           0
+## individuo30          1          0          0           1           0
+## individuo31          1          0          0           1           0
+## individuo32          1          0          0           1           0
+## individuo33          1          0          0           1           0
+## individuo34          1          0          0           1           0
+## individuo35          0          0          0           0           1
+## individuo36          1          0          0           1           0
+## individuo37          0          0          0           0           1
+## individuo38          1          0          0           1           0
+## individuo39          1          0          0           1           0
+## individuo40          0          0          0           0           0
+## individuo41          0          0          0           0           0
+## individuo42          1          0          0           1           0
+## individuo43          1          0          0           1           0
+## individuo44          0          1          1           0           0
+## individuo45          1          0          0           1           0
+## individuo46          1          0          0           1           0
+## individuo47          1          0          0           1           0
+## individuo48          1          0          0           1           0
+## individuo49          1          0          0           1           0
+## individuo50          1          0          0           1           0
+## individuo51          1          0          0           1           0
+## individuo52          1          0          0           1           0
+## individuo53          1          0          0           1           0
+## individuo54          1          0          0           1           0
+## individuo55          1          0          0           1           0
+## individuo56          1          0          0           1           0
+##             individuo12 individuo13 individuo14 individuo15 individuo16
+## individuo1            0           0           0           0           1
+## individuo2            0           1           0           1           0
+## individuo3            0           0           0           0           0
+## individuo4            0           1           0           1           0
+## individuo5            1           0           1           0           0
+## individuo6            1           0           1           0           0
+## individuo7            0           1           0           1           0
+## individuo8            0           0           0           0           0
+## individuo9            0           0           0           0           0
+## individuo10           0           1           0           1           0
+## individuo11           0           0           0           0           1
+## individuo12           0           0           1           0           0
+## individuo13           0           0           0           1           0
+## individuo14           1           0           0           0           0
+## individuo15           0           1           0           0           0
+## individuo16           0           0           0           0           0
+## individuo17           0           1           0           1           0
+## individuo18           0           1           0           1           0
+## individuo19           1           0           1           0           0
+## individuo20           0           1           0           1           0
+## individuo21           0           1           0           1           0
+## individuo22           1           0           1           0           0
+## individuo23           0           1           0           1           0
+## individuo24           0           1           0           1           0
+## individuo25           0           1           0           1           0
+## individuo26           0           0           0           0           1
+## individuo27           0           1           0           1           0
+## individuo28           0           1           0           1           0
+## individuo29           0           1           0           1           0
+## individuo30           0           1           0           1           0
+## individuo31           0           1           0           1           0
+## individuo32           0           1           0           1           0
+## individuo33           0           1           0           1           0
+## individuo34           0           1           0           1           0
+## individuo35           0           0           0           0           1
+## individuo36           0           1           0           1           0
+## individuo37           0           0           0           0           1
+## individuo38           0           1           0           1           0
+## individuo39           0           1           0           1           0
+## individuo40           1           0           1           0           0
+## individuo41           1           0           1           0           0
+## individuo42           0           1           0           1           0
+## individuo43           0           1           0           1           0
+## individuo44           0           0           0           0           0
+## individuo45           0           1           0           1           0
+## individuo46           0           1           0           1           0
+## individuo47           0           1           0           1           0
+## individuo48           0           1           0           1           0
+## individuo49           0           1           0           1           0
+## individuo50           0           1           0           1           0
+## individuo51           0           1           0           1           0
+## individuo52           0           1           0           1           0
+## individuo53           0           1           0           1           0
+## individuo54           0           1           0           1           0
+## individuo55           0           1           0           1           0
+## individuo56           0           1           0           1           0
+##             individuo17 individuo18 individuo19 individuo20 individuo21
+## individuo1            0           0           0           0           0
+## individuo2            1           1           0           1           1
+## individuo3            0           0           0           0           0
+## individuo4            1           1           0           1           1
+## individuo5            0           0           1           0           0
+## individuo6            0           0           1           0           0
+## individuo7            1           1           0           1           1
+## individuo8            0           0           0           0           0
+## individuo9            0           0           0           0           0
+## individuo10           1           1           0           1           1
+## individuo11           0           0           0           0           0
+## individuo12           0           0           1           0           0
+## individuo13           1           1           0           1           1
+## individuo14           0           0           1           0           0
+## individuo15           1           1           0           1           1
+## individuo16           0           0           0           0           0
+## individuo17           0           1           0           1           1
+## individuo18           1           0           0           1           1
+## individuo19           0           0           0           0           0
+## individuo20           1           1           0           0           1
+## individuo21           1           1           0           1           0
+## individuo22           0           0           1           0           0
+## individuo23           1           1           0           1           1
+## individuo24           1           1           0           1           1
+## individuo25           1           1           0           1           1
+## individuo26           0           0           0           0           0
+## individuo27           1           1           0           1           1
+## individuo28           1           1           0           1           1
+## individuo29           1           1           0           1           1
+## individuo30           1           1           0           1           1
+## individuo31           1           1           0           1           1
+## individuo32           1           1           0           1           1
+## individuo33           1           1           0           1           1
+## individuo34           1           1           0           1           1
+## individuo35           0           0           0           0           0
+## individuo36           1           1           0           1           1
+## individuo37           0           0           0           0           0
+## individuo38           1           1           0           1           1
+## individuo39           1           1           0           1           1
+## individuo40           0           0           1           0           0
+## individuo41           0           0           1           0           0
+## individuo42           1           1           0           1           1
+## individuo43           1           1           0           1           1
+## individuo44           0           0           0           0           0
+## individuo45           1           1           0           1           1
+## individuo46           1           1           0           1           1
+## individuo47           1           1           0           1           1
+## individuo48           1           1           0           1           1
+## individuo49           1           1           0           1           1
+## individuo50           1           1           0           1           1
+## individuo51           1           1           0           1           1
+## individuo52           1           1           0           1           1
+## individuo53           1           1           0           1           1
+## individuo54           1           1           0           1           1
+## individuo55           1           1           0           1           1
+## individuo56           1           1           0           1           1
+##             individuo22 individuo23 individuo24 individuo25 individuo26
+## individuo1            0           0           0           0           1
+## individuo2            0           1           1           1           0
+## individuo3            0           0           0           0           0
+## individuo4            0           1           1           1           0
+## individuo5            1           0           0           0           0
+## individuo6            1           0           0           0           0
+## individuo7            0           1           1           1           0
+## individuo8            0           0           0           0           0
+## individuo9            0           0           0           0           0
+## individuo10           0           1           1           1           0
+## individuo11           0           0           0           0           1
+## individuo12           1           0           0           0           0
+## individuo13           0           1           1           1           0
+## individuo14           1           0           0           0           0
+## individuo15           0           1           1           1           0
+## individuo16           0           0           0           0           1
+## individuo17           0           1           1           1           0
+## individuo18           0           1           1           1           0
+## individuo19           1           0           0           0           0
+## individuo20           0           1           1           1           0
+## individuo21           0           1           1           1           0
+## individuo22           0           0           0           0           0
+## individuo23           0           0           1           1           0
+## individuo24           0           1           0           1           0
+## individuo25           0           1           1           0           0
+## individuo26           0           0           0           0           0
+## individuo27           0           1           1           1           0
+## individuo28           0           1           1           1           0
+## individuo29           0           1           1           1           0
+## individuo30           0           1           1           1           0
+## individuo31           0           1           1           1           0
+## individuo32           0           1           1           1           0
+## individuo33           0           1           1           1           0
+## individuo34           0           1           1           1           0
+## individuo35           0           0           0           0           1
+## individuo36           0           1           1           1           0
+## individuo37           0           0           0           0           1
+## individuo38           0           1           1           1           0
+## individuo39           0           1           1           1           0
+## individuo40           1           0           0           0           0
+## individuo41           1           0           0           0           0
+## individuo42           0           1           1           1           0
+## individuo43           0           1           1           1           0
+## individuo44           0           0           0           0           0
+## individuo45           0           1           1           1           0
+## individuo46           0           1           1           1           0
+## individuo47           0           1           1           1           0
+## individuo48           0           1           1           1           0
+## individuo49           0           1           1           1           0
+## individuo50           0           1           1           1           0
+## individuo51           0           1           1           1           0
+## individuo52           0           1           1           1           0
+## individuo53           0           1           1           1           0
+## individuo54           0           1           1           1           0
+## individuo55           0           1           1           1           0
+## individuo56           0           1           1           1           0
+##             individuo27 individuo28 individuo29 individuo30 individuo31
+## individuo1            0           0           0           0           0
+## individuo2            1           1           1           1           1
+## individuo3            0           0           0           0           0
+## individuo4            1           1           1           1           1
+## individuo5            0           0           0           0           0
+## individuo6            0           0           0           0           0
+## individuo7            1           1           1           1           1
+## individuo8            0           0           0           0           0
+## individuo9            0           0           0           0           0
+## individuo10           1           1           1           1           1
+## individuo11           0           0           0           0           0
+## individuo12           0           0           0           0           0
+## individuo13           1           1           1           1           1
+## individuo14           0           0           0           0           0
+## individuo15           1           1           1           1           1
+## individuo16           0           0           0           0           0
+## individuo17           1           1           1           1           1
+## individuo18           1           1           1           1           1
+## individuo19           0           0           0           0           0
+## individuo20           1           1           1           1           1
+## individuo21           1           1           1           1           1
+## individuo22           0           0           0           0           0
+## individuo23           1           1           1           1           1
+## individuo24           1           1           1           1           1
+## individuo25           1           1           1           1           1
+## individuo26           0           0           0           0           0
+## individuo27           0           1           1           1           1
+## individuo28           1           0           1           1           1
+## individuo29           1           1           0           1           1
+## individuo30           1           1           1           0           1
+## individuo31           1           1           1           1           0
+## individuo32           1           1           1           1           1
+## individuo33           1           1           1           1           1
+## individuo34           1           1           1           1           1
+## individuo35           0           0           0           0           0
+## individuo36           1           1           1           1           1
+## individuo37           0           0           0           0           0
+## individuo38           1           1           1           1           1
+## individuo39           1           1           1           1           1
+## individuo40           0           0           0           0           0
+## individuo41           0           0           0           0           0
+## individuo42           1           1           1           1           1
+## individuo43           1           1           1           1           1
+## individuo44           0           0           0           0           0
+## individuo45           1           1           1           1           1
+## individuo46           1           1           1           1           1
+## individuo47           1           1           1           1           1
+## individuo48           1           1           1           1           1
+## individuo49           1           1           1           1           1
+## individuo50           1           1           1           1           1
+## individuo51           1           1           1           1           1
+## individuo52           1           1           1           1           1
+## individuo53           1           1           1           1           1
+## individuo54           1           1           1           1           1
+## individuo55           1           1           1           1           1
+## individuo56           1           1           1           1           1
+##             individuo32 individuo33 individuo34 individuo35 individuo36
+## individuo1            0           0           0           1           0
+## individuo2            1           1           1           0           1
+## individuo3            0           0           0           0           0
+## individuo4            1           1           1           0           1
+## individuo5            0           0           0           0           0
+## individuo6            0           0           0           0           0
+## individuo7            1           1           1           0           1
+## individuo8            0           0           0           0           0
+## individuo9            0           0           0           0           0
+## individuo10           1           1           1           0           1
+## individuo11           0           0           0           1           0
+## individuo12           0           0           0           0           0
+## individuo13           1           1           1           0           1
+## individuo14           0           0           0           0           0
+## individuo15           1           1           1           0           1
+## individuo16           0           0           0           1           0
+## individuo17           1           1           1           0           1
+## individuo18           1           1           1           0           1
+## individuo19           0           0           0           0           0
+## individuo20           1           1           1           0           1
+## individuo21           1           1           1           0           1
+## individuo22           0           0           0           0           0
+## individuo23           1           1           1           0           1
+## individuo24           1           1           1           0           1
+## individuo25           1           1           1           0           1
+## individuo26           0           0           0           1           0
+## individuo27           1           1           1           0           1
+## individuo28           1           1           1           0           1
+## individuo29           1           1           1           0           1
+## individuo30           1           1           1           0           1
+## individuo31           1           1           1           0           1
+## individuo32           0           1           1           0           1
+## individuo33           1           0           1           0           1
+## individuo34           1           1           0           0           1
+## individuo35           0           0           0           0           0
+## individuo36           1           1           1           0           0
+## individuo37           0           0           0           1           0
+## individuo38           1           1           1           0           1
+## individuo39           1           1           1           0           1
+## individuo40           0           0           0           0           0
+## individuo41           0           0           0           0           0
+## individuo42           1           1           1           0           1
+## individuo43           1           1           1           0           1
+## individuo44           0           0           0           0           0
+## individuo45           1           1           1           0           1
+## individuo46           1           1           1           0           1
+## individuo47           1           1           1           0           1
+## individuo48           1           1           1           0           1
+## individuo49           1           1           1           0           1
+## individuo50           1           1           1           0           1
+## individuo51           1           1           1           0           1
+## individuo52           1           1           1           0           1
+## individuo53           1           1           1           0           1
+## individuo54           1           1           1           0           1
+## individuo55           1           1           1           0           1
+## individuo56           1           1           1           0           1
+##             individuo37 individuo38 individuo39 individuo40 individuo41
+## individuo1            1           0           0           0           0
+## individuo2            0           1           1           0           0
+## individuo3            0           0           0           0           0
+## individuo4            0           1           1           0           0
+## individuo5            0           0           0           1           1
+## individuo6            0           0           0           1           1
+## individuo7            0           1           1           0           0
+## individuo8            0           0           0           0           0
+## individuo9            0           0           0           0           0
+## individuo10           0           1           1           0           0
+## individuo11           1           0           0           0           0
+## individuo12           0           0           0           1           1
+## individuo13           0           1           1           0           0
+## individuo14           0           0           0           1           1
+## individuo15           0           1           1           0           0
+## individuo16           1           0           0           0           0
+## individuo17           0           1           1           0           0
+## individuo18           0           1           1           0           0
+## individuo19           0           0           0           1           1
+## individuo20           0           1           1           0           0
+## individuo21           0           1           1           0           0
+## individuo22           0           0           0           1           1
+## individuo23           0           1           1           0           0
+## individuo24           0           1           1           0           0
+## individuo25           0           1           1           0           0
+## individuo26           1           0           0           0           0
+## individuo27           0           1           1           0           0
+## individuo28           0           1           1           0           0
+## individuo29           0           1           1           0           0
+## individuo30           0           1           1           0           0
+## individuo31           0           1           1           0           0
+## individuo32           0           1           1           0           0
+## individuo33           0           1           1           0           0
+## individuo34           0           1           1           0           0
+## individuo35           1           0           0           0           0
+## individuo36           0           1           1           0           0
+## individuo37           0           0           0           0           0
+## individuo38           0           0           1           0           0
+## individuo39           0           1           0           0           0
+## individuo40           0           0           0           0           1
+## individuo41           0           0           0           1           0
+## individuo42           0           1           1           0           0
+## individuo43           0           1           1           0           0
+## individuo44           0           0           0           0           0
+## individuo45           0           1           1           0           0
+## individuo46           0           1           1           0           0
+## individuo47           0           1           1           0           0
+## individuo48           0           1           1           0           0
+## individuo49           0           1           1           0           0
+## individuo50           0           1           1           0           0
+## individuo51           0           1           1           0           0
+## individuo52           0           1           1           0           0
+## individuo53           0           1           1           0           0
+## individuo54           0           1           1           0           0
+## individuo55           0           1           1           0           0
+## individuo56           0           1           1           0           0
+##             individuo42 individuo43 individuo44 individuo45 individuo46
+## individuo1            0           0           0           0           0
+## individuo2            1           1           0           1           1
+## individuo3            0           0           1           0           0
+## individuo4            1           1           0           1           1
+## individuo5            0           0           0           0           0
+## individuo6            0           0           0           0           0
+## individuo7            1           1           0           1           1
+## individuo8            0           0           1           0           0
+## individuo9            0           0           1           0           0
+## individuo10           1           1           0           1           1
+## individuo11           0           0           0           0           0
+## individuo12           0           0           0           0           0
+## individuo13           1           1           0           1           1
+## individuo14           0           0           0           0           0
+## individuo15           1           1           0           1           1
+## individuo16           0           0           0           0           0
+## individuo17           1           1           0           1           1
+## individuo18           1           1           0           1           1
+## individuo19           0           0           0           0           0
+## individuo20           1           1           0           1           1
+## individuo21           1           1           0           1           1
+## individuo22           0           0           0           0           0
+## individuo23           1           1           0           1           1
+## individuo24           1           1           0           1           1
+## individuo25           1           1           0           1           1
+## individuo26           0           0           0           0           0
+## individuo27           1           1           0           1           1
+## individuo28           1           1           0           1           1
+## individuo29           1           1           0           1           1
+## individuo30           1           1           0           1           1
+## individuo31           1           1           0           1           1
+## individuo32           1           1           0           1           1
+## individuo33           1           1           0           1           1
+## individuo34           1           1           0           1           1
+## individuo35           0           0           0           0           0
+## individuo36           1           1           0           1           1
+## individuo37           0           0           0           0           0
+## individuo38           1           1           0           1           1
+## individuo39           1           1           0           1           1
+## individuo40           0           0           0           0           0
+## individuo41           0           0           0           0           0
+## individuo42           0           1           0           1           1
+## individuo43           1           0           0           1           1
+## individuo44           0           0           0           0           0
+## individuo45           1           1           0           0           1
+## individuo46           1           1           0           1           0
+## individuo47           1           1           0           1           1
+## individuo48           1           1           0           1           1
+## individuo49           1           1           0           1           1
+## individuo50           1           1           0           1           1
+## individuo51           1           1           0           1           1
+## individuo52           1           1           0           1           1
+## individuo53           1           1           0           1           1
+## individuo54           1           1           0           1           1
+## individuo55           1           1           0           1           1
+## individuo56           1           1           0           1           1
+##             individuo47 individuo48 individuo49 individuo50 individuo51
+## individuo1            0           0           0           0           0
+## individuo2            1           1           1           1           1
+## individuo3            0           0           0           0           0
+## individuo4            1           1           1           1           1
+## individuo5            0           0           0           0           0
+## individuo6            0           0           0           0           0
+## individuo7            1           1           1           1           1
+## individuo8            0           0           0           0           0
+## individuo9            0           0           0           0           0
+## individuo10           1           1           1           1           1
+## individuo11           0           0           0           0           0
+## individuo12           0           0           0           0           0
+## individuo13           1           1           1           1           1
+## individuo14           0           0           0           0           0
+## individuo15           1           1           1           1           1
+## individuo16           0           0           0           0           0
+## individuo17           1           1           1           1           1
+## individuo18           1           1           1           1           1
+## individuo19           0           0           0           0           0
+## individuo20           1           1           1           1           1
+## individuo21           1           1           1           1           1
+## individuo22           0           0           0           0           0
+## individuo23           1           1           1           1           1
+## individuo24           1           1           1           1           1
+## individuo25           1           1           1           1           1
+## individuo26           0           0           0           0           0
+## individuo27           1           1           1           1           1
+## individuo28           1           1           1           1           1
+## individuo29           1           1           1           1           1
+## individuo30           1           1           1           1           1
+## individuo31           1           1           1           1           1
+## individuo32           1           1           1           1           1
+## individuo33           1           1           1           1           1
+## individuo34           1           1           1           1           1
+## individuo35           0           0           0           0           0
+## individuo36           1           1           1           1           1
+## individuo37           0           0           0           0           0
+## individuo38           1           1           1           1           1
+## individuo39           1           1           1           1           1
+## individuo40           0           0           0           0           0
+## individuo41           0           0           0           0           0
+## individuo42           1           1           1           1           1
+## individuo43           1           1           1           1           1
+## individuo44           0           0           0           0           0
+## individuo45           1           1           1           1           1
+## individuo46           1           1           1           1           1
+## individuo47           0           1           1           1           1
+## individuo48           1           0           1           1           1
+## individuo49           1           1           0           1           1
+## individuo50           1           1           1           0           1
+## individuo51           1           1           1           1           0
+## individuo52           1           1           1           1           1
+## individuo53           1           1           1           1           1
+## individuo54           1           1           1           1           1
+## individuo55           1           1           1           1           1
+## individuo56           1           1           1           1           1
+##             individuo52 individuo53 individuo54 individuo55 individuo56
+## individuo1            0           0           0           0           0
+## individuo2            1           1           1           1           1
+## individuo3            0           0           0           0           0
+## individuo4            1           1           1           1           1
+## individuo5            0           0           0           0           0
+## individuo6            0           0           0           0           0
+## individuo7            1           1           1           1           1
+## individuo8            0           0           0           0           0
+## individuo9            0           0           0           0           0
+## individuo10           1           1           1           1           1
+## individuo11           0           0           0           0           0
+## individuo12           0           0           0           0           0
+## individuo13           1           1           1           1           1
+## individuo14           0           0           0           0           0
+## individuo15           1           1           1           1           1
+## individuo16           0           0           0           0           0
+## individuo17           1           1           1           1           1
+## individuo18           1           1           1           1           1
+## individuo19           0           0           0           0           0
+## individuo20           1           1           1           1           1
+## individuo21           1           1           1           1           1
+## individuo22           0           0           0           0           0
+## individuo23           1           1           1           1           1
+## individuo24           1           1           1           1           1
+## individuo25           1           1           1           1           1
+## individuo26           0           0           0           0           0
+## individuo27           1           1           1           1           1
+## individuo28           1           1           1           1           1
+## individuo29           1           1           1           1           1
+## individuo30           1           1           1           1           1
+## individuo31           1           1           1           1           1
+## individuo32           1           1           1           1           1
+## individuo33           1           1           1           1           1
+## individuo34           1           1           1           1           1
+## individuo35           0           0           0           0           0
+## individuo36           1           1           1           1           1
+## individuo37           0           0           0           0           0
+## individuo38           1           1           1           1           1
+## individuo39           1           1           1           1           1
+## individuo40           0           0           0           0           0
+## individuo41           0           0           0           0           0
+## individuo42           1           1           1           1           1
+## individuo43           1           1           1           1           1
+## individuo44           0           0           0           0           0
+## individuo45           1           1           1           1           1
+## individuo46           1           1           1           1           1
+## individuo47           1           1           1           1           1
+## individuo48           1           1           1           1           1
+## individuo49           1           1           1           1           1
+## individuo50           1           1           1           1           1
+## individuo51           1           1           1           1           1
+## individuo52           0           1           1           1           1
+## individuo53           1           0           1           1           1
+## individuo54           1           1           0           1           1
+## individuo55           1           1           1           0           1
+## individuo56           1           1           1           1           0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Convertimos nuestra base de datos en una matriz}
+\NormalTok{EdadMM }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(Edad)}
+\CommentTok{\#Vamos a hacer una matriz de correlación para tener valores entre 0 y 1 que nos indiquen }
+\CommentTok{\#la correlación entre infividuos}
+\NormalTok{EdadCor }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(}\FunctionTok{t}\NormalTok{(EdadMM))}
+\CommentTok{\#ponemos los valores de la diagonal en 0}
+\FunctionTok{diag}\NormalTok{(EdadCor)}\OtherTok{\textless{}{-}}\DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+Imprimimos el heatmap
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-24-1.pdf}
+
+Vamos a contruir la red
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#Vamos a hacer que los valores de la correlación queden entre 0 y 1}
+\NormalTok{EdadAd1 }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{+}\NormalTok{EdadCor)}\SpecialCharTok{/}\DecValTok{2}
+\CommentTok{\#Ponemos en 0 la diagonal de la matriz}
+\FunctionTok{diag}\NormalTok{(EdadAd1)}\OtherTok{\textless{}{-}}\DecValTok{0}
+\CommentTok{\#Indicamos que los valores mayores a 0.75 se les ponga un 1}
+\NormalTok{Ecerouno }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(EdadAd1}\SpecialCharTok{\textgreater{}}\FloatTok{0.75}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\CommentTok{\#Convertimos a matriz}
+\NormalTok{Ecerouno }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(Ecerouno)}
+
+\CommentTok{\#Cargamos la libreria de igraph}
+\FunctionTok{library}\NormalTok{(igraph)}
+
+\CommentTok{\#Convertimos nuestra matriz en una matriz de Adyacencia}
+\NormalTok{AdyacenciaE }\OtherTok{\textless{}{-}} \FunctionTok{graph\_from\_adjacency\_matrix}\NormalTok{(Ecerouno)}
+
+
+\FunctionTok{V}\NormalTok{(AdyacenciaE)}\SpecialCharTok{$}\NormalTok{size}\OtherTok{\textless{}{-}}\FunctionTok{degree}\NormalTok{(AdyacenciaV,}\AttributeTok{mode=}\StringTok{"in"}\NormalTok{)}\SpecialCharTok{*}\DecValTok{3}  \CommentTok{\#Hacemos el tamaño de los nodos por el valor del degree de entrada}
+\FunctionTok{V}\NormalTok{(AdyacenciaE)}\SpecialCharTok{$}\NormalTok{color}\OtherTok{=}\StringTok{"\#96F7D2"} \CommentTok{\#les ponemos colorcito}
+\FunctionTok{V}\NormalTok{(AdyacenciaE)}\SpecialCharTok{$}\NormalTok{shape}\OtherTok{=}\StringTok{"sphere"} \CommentTok{\#establecemos forma}
+\FunctionTok{E}\NormalTok{(AdyacenciaE)}\SpecialCharTok{$}\NormalTok{color}\OtherTok{=}\StringTok{"white"} \CommentTok{\#damos color a las conexiones}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-26-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ebE }\OtherTok{\textless{}{-}} \FunctionTok{cluster\_edge\_betweenness}\NormalTok{(AdyacenciaE, }\AttributeTok{directed =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{ebE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## IGRAPH clustering edge betweenness, groups: 4, mod: 0.12
+## + groups:
+##   $`1`
+##   [1] "individuo1"  "individuo11" "individuo16" "individuo26" "individuo35"
+##   [6] "individuo37"
+##   
+##   $`2`
+##    [1] "individuo2"  "individuo4"  "individuo7"  "individuo10" "individuo13"
+##    [6] "individuo15" "individuo17" "individuo18" "individuo20" "individuo21"
+##   [11] "individuo23" "individuo24" "individuo25" "individuo27" "individuo28"
+##   [16] "individuo29" "individuo30" "individuo31" "individuo32" "individuo33"
+##   [21] "individuo34" "individuo36" "individuo38" "individuo39" "individuo42"
+##   + ... omitted several groups/vertices
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(}\FunctionTok{membership}\NormalTok{(ebE))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  1  2  3  4 
+##  6 38  4  8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Nos indica la presencia de 4 clusters}
+\CommentTok{\#Grupo 1 +41 años (6 individuos)}
+\CommentTok{\#Grupo 2 21 a 30 años (38 individuos)}
+\CommentTok{\#Grupo 3 31 a 40 años (4 individuos)}
+\CommentTok{\#Grupo 4 15 a 20 años (8 individuos)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+\emph{Ahora vamos a los análisis estadísticos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Cargamos nuestra base de datos completa}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"Datos {-} Hoja 1.csv"}\NormalTok{)}
+
+\CommentTok{\#Cargamos las siguientes librerias}
+\FunctionTok{library}\NormalTok{(Rmisc) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: plyr
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(lattice)}
+\FunctionTok{library}\NormalTok{ (plyr)}
+\end{Highlighting}
+\end{Shaded}
+
+Primero veremos si el sector tiene un efecto sobre el número de dosis
+que se puso cada individuo
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{resumenD }\OtherTok{\textless{}{-}} \FunctionTok{summarySE}\NormalTok{ (datos, }\CommentTok{\#base de datos}
+                      \AttributeTok{measurevar =} \StringTok{"Dosis"}\NormalTok{, }
+                      \AttributeTok{groupvars =} \StringTok{"Sector"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in qt(conf.interval/2 + 0.5, datac$N - 1): NaNs produced
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{resumenD }\CommentTok{\#imprime el resumen con los datos con, sd, se y ci}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               Sector  N    Dosis        sd        se        ci
+## 1    Area industrial  1 3.000000        NA        NA       NaN
+## 2  Ciencias sociales  3 2.333333 0.5773503 0.3333333 1.4342176
+## 3           Empleado  6 2.000000 1.0954451 0.4472136 1.1495991
+## 4         Estudiante 12 2.750000 0.4522670 0.1305582 0.2873568
+## 5        Estudiante   4 2.500000 0.5773503 0.2886751 0.9186931
+## 6             Obrero  3 2.000000 1.7320508 1.0000000 4.3026527
+## 7   Sector educativo  6 2.000000 1.0954451 0.4472136 1.1495991
+## 8  Sector industrial  6 2.500000 0.5477226 0.2236068 0.5747996
+## 9       Sector salud 15 2.400000 1.0555973 0.2725541 0.5845703
+## 10     Sector salud   1 0.000000        NA        NA       NaN
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cargar ggplot2 que contiene la funci?n ggplot para hacer la grafica}
+
+\FunctionTok{library}\NormalTok{ (ggplot2) }
+\NormalTok{graficaD }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(resumenD, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Sector, }\AttributeTok{y =}\NormalTok{ Dosis, }\AttributeTok{fill =}\NormalTok{ Sector)) }\SpecialCharTok{+} \CommentTok{\#objeto con los datos y su variable, rellenar color por dietas}
+    \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{ (), }\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\#tipo de grafica de barras}
+    \FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ Dosis }\SpecialCharTok{{-}}\NormalTok{ ci, }\AttributeTok{ymax =}\NormalTok{ Dosis }\SpecialCharTok{+}\NormalTok{ ci), }\CommentTok{\#intervalo de confianza}
+                  \AttributeTok{width =}\NormalTok{.}\DecValTok{1}\NormalTok{, }
+                  \AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(.}\DecValTok{9}\NormalTok{)) }\CommentTok{\#cargar datos de la grafica}
+\end{Highlighting}
+\end{Shaded}
+
+Imprimimos la gráfica
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-32-1.pdf}
+
+Hacemos una anova
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#El sector dónde se desarrollan tiene efectos en el número de dosis que se pusieron}
+\NormalTok{pruebac }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{ (Dosis }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Sector , datos)}
+\NormalTok{pruebac}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+##    aov(formula = Dosis ~ Sector, data = datos)
+## 
+## Terms:
+##                   Sector Residuals
+## Sum of Squares   9.96579  39.01667
+## Deg. of Freedom        9        47
+## 
+## Residual standard error: 0.9111212
+## Estimated effects may be unbalanced
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Imprimimos el resumen de nuestra anova}
+\FunctionTok{summary}\NormalTok{ (pruebac)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Df Sum Sq Mean Sq F value Pr(>F)
+## Sector       9   9.97  1.1073   1.334  0.246
+## Residuals   47  39.02  0.8301
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Valor de P de 0.24 se rechza la hipotesis}
+\end{Highlighting}
+\end{Shaded}
+
+Hay una relación con la fuente de información sobre vacunación y la
+cantidad de dosis
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{resumenI }\OtherTok{\textless{}{-}} \FunctionTok{summarySE}\NormalTok{ (datos, }\CommentTok{\#base de datos}
+                      \AttributeTok{measurevar =} \StringTok{"Dosis"}\NormalTok{, }
+                      \AttributeTok{groupvars =} \StringTok{"InfVacunacion"}\NormalTok{) }
+\NormalTok{resumenI }\CommentTok{\#imprime el resumen con los datos con, sd, se y ci}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                InfVacunacion  N    Dosis        sd        se        ci
+## 1              A Cientificos 21 2.571429 0.7464200 0.1628822 0.3397663
+## 2         Comunicado oficial 25 2.280000 0.9797959 0.1959592 0.4044399
+## 3 Noticias de redes sociales 11 2.090909 1.1361818 0.3425717 0.7632973
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cargar ggplot2 que contiene la funci?n ggplot para hacer la grafica}
+
+\FunctionTok{library}\NormalTok{ (ggplot2) }
+\NormalTok{graficaI }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(resumenI, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ InfVacunacion, }\AttributeTok{y =}\NormalTok{ Dosis, }\AttributeTok{fill =}\NormalTok{ InfVacunacion)) }\SpecialCharTok{+} \CommentTok{\#objeto con los datos y su variable, rellenar color por dietas}
+    \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{ (), }\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\#tipo de grafica de barras}
+    \FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ Dosis }\SpecialCharTok{{-}}\NormalTok{ ci, }\AttributeTok{ymax =}\NormalTok{ Dosis }\SpecialCharTok{+}\NormalTok{ ci), }\CommentTok{\#intervalo de confianza}
+                  \AttributeTok{width =}\NormalTok{.}\DecValTok{1}\NormalTok{, }
+                  \AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(.}\DecValTok{9}\NormalTok{)) }\CommentTok{\#cargar datos de la grafica}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-36-1.pdf}
+
+Hacemos una anova
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#El sector dónde se desarrollan tiene efectos en el número de dosis que se pusieron}
+\NormalTok{pruebaI }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{ (Dosis }\SpecialCharTok{\textasciitilde{}}\NormalTok{ InfVacunacion , datos)}
+\NormalTok{pruebaI}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+##    aov(formula = Dosis ~ InfVacunacion, data = datos)
+## 
+## Terms:
+##                 InfVacunacion Residuals
+## Sum of Squares        1.89051  47.09195
+## Deg. of Freedom             2        54
+## 
+## Residual standard error: 0.9338485
+## Estimated effects may be unbalanced
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Imprimimos el resumen de nuestra anova}
+\FunctionTok{summary}\NormalTok{ (pruebaI)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               Df Sum Sq Mean Sq F value Pr(>F)
+## InfVacunacion  2   1.89  0.9453   1.084  0.346
+## Residuals     54  47.09  0.8721
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Valor de P de 0.34 se rechza la hipotesis}
+\end{Highlighting}
+\end{Shaded}
+
+Por último vemos si la edad influye en cómo es que se informaron las
+personas
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{resumenE }\OtherTok{\textless{}{-}} \FunctionTok{summarySE}\NormalTok{ (datos, }\CommentTok{\#base de datos}
+                      \AttributeTok{measurevar =} \StringTok{"Edad"}\NormalTok{, }
+                      \AttributeTok{groupvars =} \StringTok{"InfVacunacion"}\NormalTok{) }
+\NormalTok{resumenE }\CommentTok{\#imprime el resumen con los datos con, sd, se y ci}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                InfVacunacion  N     Edad       sd       se       ci
+## 1              A Cientificos 21 22.95238 5.490685 1.198166 2.499330
+## 2         Comunicado oficial 25 27.56000 9.381187 1.876237 3.872364
+## 3 Noticias de redes sociales 11 25.00000 6.418723 1.935318 4.312157
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cargar ggplot2 que contiene la funci?n ggplot para hacer la grafica}
+
+\FunctionTok{library}\NormalTok{ (ggplot2) }
+\NormalTok{graficaE }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(resumenE, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ InfVacunacion, }\AttributeTok{y =}\NormalTok{ Edad, }\AttributeTok{fill =}\NormalTok{ InfVacunacion)) }\SpecialCharTok{+} \CommentTok{\#objeto con los datos y su variable, rellenar color por dietas}
+    \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{ (), }\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\#tipo de grafica de barras}
+    \FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ Edad }\SpecialCharTok{{-}}\NormalTok{ ci, }\AttributeTok{ymax =}\NormalTok{ Edad }\SpecialCharTok{+}\NormalTok{ ci), }\CommentTok{\#intervalo de confianza}
+                  \AttributeTok{width =}\NormalTok{.}\DecValTok{1}\NormalTok{, }
+                  \AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(.}\DecValTok{9}\NormalTok{)) }\CommentTok{\#cargar datos de la grafica}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-40-1.pdf}
+
+La edad tiene un efecto en la cantidad de dosis
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{resumenEd }\OtherTok{\textless{}{-}} \FunctionTok{summarySE}\NormalTok{ (datos, }\CommentTok{\#base de datos}
+                      \AttributeTok{measurevar =} \StringTok{"Edad"}\NormalTok{, }
+                      \AttributeTok{groupvars =} \StringTok{"Dosis"}\NormalTok{) }
+\NormalTok{resumenEd }\CommentTok{\#imprime el resumen con los datos con, sd, se y ci}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Dosis  N     Edad        sd        se       ci
+## 1     0  6 26.50000  8.240146 3.3640254 8.647503
+## 2     2 19 28.00000 10.143416 2.3270592 4.888970
+## 3     3 32 23.59375  5.505770 0.9732919 1.985042
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cargar ggplot2 que contiene la funci?n ggplot para hacer la grafica}
+
+\FunctionTok{library}\NormalTok{ (ggplot2) }
+\NormalTok{graficaEd }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(resumenEd, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Dosis, }\AttributeTok{y =}\NormalTok{ Edad, }\AttributeTok{fill =}\NormalTok{ Dosis)) }\SpecialCharTok{+} \CommentTok{\#objeto con los datos y su variable, rellenar color por dietas}
+    \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{ (), }\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\#tipo de grafica de barras}
+    \FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ Edad }\SpecialCharTok{{-}}\NormalTok{ ci, }\AttributeTok{ymax =}\NormalTok{ Edad }\SpecialCharTok{+}\NormalTok{ ci), }\CommentTok{\#intervalo de confianza}
+                  \AttributeTok{width =}\NormalTok{.}\DecValTok{1}\NormalTok{, }
+                  \AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(.}\DecValTok{9}\NormalTok{)) }\CommentTok{\#cargar datos de la grafica}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto-Final-Genómica_files/figure-latex/unnamed-chunk-43-1.pdf}
+
+Hacemos una anova
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#El sector dónde se desarrollan tiene efectos en el número de dosis que se pusieron}
+\NormalTok{pruebaEd }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{ (Edad }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Dosis , datos)}
+\NormalTok{pruebaEd}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+##    aov(formula = Edad ~ Dosis, data = datos)
+## 
+## Terms:
+##                    Dosis Residuals
+## Sum of Squares   101.092  3270.172
+## Deg. of Freedom        1        55
+## 
+## Residual standard error: 7.71088
+## Estimated effects may be unbalanced
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Imprimimos el resumen de nuestra anova}
+\FunctionTok{summary}\NormalTok{ (pruebaEd)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Df Sum Sq Mean Sq F value Pr(>F)
+## Dosis        1    101  101.09     1.7  0.198
+## Residuals   55   3270   59.46
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Valor de P de 0.19 se rechza la hipotesis}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
